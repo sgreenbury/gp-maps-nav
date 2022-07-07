@@ -1,0 +1,37 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+cc_library(
+    name = "neutral_network",
+    srcs = [
+        "cwalker.cpp"
+    ],
+    hdrs = [
+        "cwalker.hpp"
+    ],
+    deps = [
+        "//src/base:base",
+        # "@vienna_rna//:RNA",
+        # "@com_google_absl//absl/flags:flag",
+        # "@com_google_absl//absl/flags:parse",
+        # "@com_google_absl//absl/flags:usage",
+        # "@com_google_absl//absl/strings",
+    ],
+    copts = ["-Isrc/"],
+)
+
+cc_binary(
+    name = "gp_map_stats",
+    deps = [
+        "//src/base:base",
+        ":neutral_network",
+        # "@vienna_rna//:RNA",
+        "@com_google_absl//absl/flags:flag",
+        "@com_google_absl//absl/flags:parse",
+        "@com_google_absl//absl/flags:usage",
+        "@com_google_absl//absl/strings",
+    ],
+    srcs = [
+        "gp_map_stats.cpp",
+    ],
+    copts = ["-Isrc/"],
+)

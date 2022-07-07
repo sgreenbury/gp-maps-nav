@@ -1,0 +1,21 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+# https://docs.bazel.build/versions/4.2.1/external.html
+cc_library(
+    name = "base",
+    srcs = [
+        "utilities.cpp",
+    ],
+    hdrs = [
+        "utilities.hpp",
+    ],
+    deps = [
+        "@vienna_rna//:RNA",
+        "@com_google_absl//absl/flags:flag",
+        "@com_google_absl//absl/flags:parse",
+        "@com_google_absl//absl/flags:usage",
+        "@com_google_absl//absl/strings",
+    ],
+    visibility = ["//visibility:public"],
+    copts = ["-Isrc/"],
+)

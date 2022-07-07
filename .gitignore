@@ -30,3 +30,51 @@
 *.exe
 *.out
 *.app
+
+
+# ipynb notebooks
+*.ipynb
+
+
+# Genotype lists
+geno_list0.txt
+
+# Runfiles
+*.sh.*
+
+# Outfiles
+.scratch
+scratch
+times*txt
+stats*txt
+out*txt
+
+# Other files
+frnadb_summary.zip
+gp_maps/
+
+# Bazel
+*~
+bazel-*
+# .bazelrc
+.idea
+
+# .DS_Store
+.DS_Store
+
+# ViennaRNA
+ViennaRNA
+
+# Server and results
+copy_to_server.sh
+copy_from_server.sh
+notebooks/outs/
+
+# Data
+data/
+plotting/ny
+plotting/gp_maps_nav_data
+plotting/outs_final_nee
+
+# Python
+__pycache__

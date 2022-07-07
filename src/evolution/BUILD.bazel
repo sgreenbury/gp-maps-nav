@@ -1,0 +1,59 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+# https://docs.bazel.build/versions/4.2.1/external.html
+cc_library(
+    name = "evo",
+    srcs = [
+        "individual.cpp",
+        "evo_rna.cpp",
+    ],
+    hdrs = [
+        "individual.hpp",
+        "evo_rna.hpp",
+    ],
+    deps = [
+        "//src/base:base",
+        "//src/landscape:nav",
+        "@vienna_rna//:RNA",
+        "@com_google_absl//absl/flags:flag",
+        "@com_google_absl//absl/flags:parse",
+        "@com_google_absl//absl/flags:usage",
+        "@com_google_absl//absl/strings",
+    ],
+    copts = ["-Isrc/"],
+)
+
+# Binary for polymorphic evolution
+cc_binary(
+    name = "nav_rna",
+    deps = [
+        "//src/base:base",
+        "//src/landscape:nav",
+        ":evo",
+        "@vienna_rna//:RNA",
+        "@com_google_absl//absl/flags:flag",
+        "@com_google_absl//absl/flags:parse",
+        "@com_google_absl//absl/flags:usage",
+        "@com_google_absl//absl/strings",
+        # "@com_google_absl//absl/random",
+
+    ],
+    srcs = ["nav_rna.cpp"],
+    copts = ["-Isrc/"],
+)
+
+# Binary for monomorphic evolution simulation
+cc_binary(
+    name = "nav_rna_mono",
+    deps = [
+        "//src/base:base",
+        "//src/landscape:nav",
+        "@vienna_rna//:RNA",
+        "@com_google_absl//absl/flags:flag",
+        "@com_google_absl//absl/flags:parse",
+        "@com_google_absl//absl/flags:usage",
+        "@com_google_absl//absl/strings",
+    ],
+    srcs = ["nav_rna_mono.cpp"],
+    copts = ["-Isrc/"],
+)

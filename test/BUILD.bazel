@@ -1,0 +1,54 @@
+# Binary for testing RNA fold and shape
+
+cc_test(
+    name = "test_fold",
+    deps = [
+        "//src/base:base",
+        "//src/landscape:nav",
+        "@vienna_rna//:RNA",
+        "@com_google_absl//absl/flags:flag",
+        "@com_google_absl//absl/flags:parse",
+        "@com_google_absl//absl/flags:usage",
+        "@com_google_absl//absl/strings",
+        "@com_google_googletest//:gtest_main",
+    ],
+    srcs = ["test_fold.cpp"],
+    copts = ["-Iexternal/gtest/include", "-Isrc/"],
+    linkstatic = 1,
+)
+
+cc_test(
+    name = "test_rna_searchspace",
+    deps = [
+        "//src/base:base",
+        "//src/landscape:nav",
+        "@vienna_rna//:RNA",
+        "@com_google_absl//absl/flags:flag",
+        "@com_google_absl//absl/flags:parse",
+        "@com_google_absl//absl/flags:usage",
+        "@com_google_absl//absl/strings",
+        "@com_google_googletest//:gtest_main",
+    ],
+    srcs = ["test_rna_searchspace.cpp"],
+    copts = ["-Iexternal/gtest/include", "-Isrc/"],
+    data = ["//gp_maps"],
+    linkstatic = 1,
+)
+
+cc_test(
+    name = "test_poly_searchspace",
+    deps = [
+        "//src/base:base",
+        "//src/landscape:nav",
+        "@vienna_rna//:RNA",
+        "@com_google_absl//absl/flags:flag",
+        "@com_google_absl//absl/flags:parse",
+        "@com_google_absl//absl/flags:usage",
+        "@com_google_absl//absl/strings",
+        "@com_google_googletest//:gtest_main",
+    ],
+    srcs = ["test_poly_searchspace.cpp"],
+    copts = ["-Iexternal/gtest/include", "-Isrc/"],
+    data = ["//gp_maps"],
+    linkstatic = 1,
+)

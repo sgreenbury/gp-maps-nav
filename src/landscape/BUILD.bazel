@@ -1,0 +1,151 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+# https://docs.bazel.build/versions/4.2.1/external.html
+cc_library(
+    name = "nav",
+    srcs = [
+        "fwalker.cpp",
+        "fwalker_l.cpp",
+        "rna_fold.cpp",
+        # "fwalker_l_poly.cpp",
+        "fast_assemble_14.cpp",
+        "pheno_14.cpp",
+        "fwalker_frna.cpp",
+    ],
+    hdrs = [
+        "fwalker.hpp",
+        "fwalker_l.hpp",
+        "rna_fold.hpp",
+        # "fwalker_l_poly.hpp",
+        "fast_assemble_14.hpp",
+        "pheno_14.hpp",
+        "fwalker_frna.hpp",
+    ],
+    deps = [
+        "//src/base:base",
+        "@vienna_rna//:RNA",
+        "@com_google_absl//absl/flags:flag",
+        "@com_google_absl//absl/flags:parse",
+        "@com_google_absl//absl/flags:usage",
+        "@com_google_absl//absl/strings",
+    ],
+    # visibility = ["//src/evolution:__pkg__"],
+    visibility = ["//visibility:public"],
+    # strip_include_prefix = "src"
+    copts = ["-Isrc/"],
+)
+
+# Binary for testing RNA fold and shape
+cc_binary(
+    name = "test_fold",
+    deps = [
+        "//src/base:base",
+        "@vienna_rna//:RNA",
+        ":nav",
+        "@com_google_absl//absl/flags:flag",
+        "@com_google_absl//absl/flags:parse",
+        "@com_google_absl//absl/flags:usage",
+        "@com_google_absl//absl/strings",
+    ],
+    srcs = ["test_fold.cpp"],
+    copts = ["-Isrc/"],
+)
+
+# Binary for running RNA search space
+cc_binary(
+    name = "test_rna_searchspace",
+    deps = [
+        "//src/base:base",
+        "@vienna_rna//:RNA",
+        ":nav",
+        "@com_google_absl//absl/flags:flag",
+        "@com_google_absl//absl/flags:parse",
+        "@com_google_absl//absl/flags:usage",
+        "@com_google_absl//absl/strings",
+    ],
+    srcs = ["test_rna_searchspace.cpp"],
+    copts = ["-Isrc/"],
+)
+
+# Binary for running Polyomino search space
+cc_binary(
+    name = "test_poly_searchspace",
+    deps = [
+        "//src/base:base",
+        "@vienna_rna//:RNA",
+        ":nav",
+        "@com_google_absl//absl/flags:flag",
+        "@com_google_absl//absl/flags:parse",
+        "@com_google_absl//absl/flags:usage",
+        "@com_google_absl//absl/strings",
+    ],
+    srcs = ["test_poly_searchspace.cpp"],
+    copts = ["-Isrc/"],
+)
+
+
+
+# Binary for folding and shaping fRNA database seqs
+cc_binary(
+    name = "seqs2structs",
+    deps = [
+        "//src/base:base",
+        "@vienna_rna//:RNA",
+        ":nav",
+        "@com_google_absl//absl/flags:flag",
+        "@com_google_absl//absl/flags:parse",
+        "@com_google_absl//absl/flags:usage",
+        "@com_google_absl//absl/strings",
+    ],
+    srcs = ["seqs2structs.cpp"],
+    copts = ["-Isrc/"],
+)
+
+# Binary for all genotypes and phenotypes enumerated
+cc_binary(
+    name = "nav_disk",
+    deps = [
+        "//src/base:base",
+        "@vienna_rna//:RNA",
+        ":nav",
+        "@com_google_absl//absl/flags:flag",
+        "@com_google_absl//absl/flags:parse",
+        "@com_google_absl//absl/flags:usage",
+        "@com_google_absl//absl/strings",
+    ],
+    srcs = ["nav_disk.cpp"],
+    copts = ["-Isrc/"],
+)
+
+# Binary for search with all phenotypes known
+cc_binary(
+    name = "nav_alg",
+    deps = [
+        "//src/base:base",
+        "@vienna_rna//:RNA",
+        ":nav",
+        "@com_google_absl//absl/flags:flag",
+        "@com_google_absl//absl/flags:parse",
+        "@com_google_absl//absl/flags:usage",
+        "@com_google_absl//absl/strings",
+    ],
+    srcs = ["nav_alg.cpp"],
+    copts = ["-Isrc/"],
+)
+
+# Binary for search for RNA without all phenotypes known
+cc_binary(
+    name = "nav_rna_dfs",
+    deps = [
+        "//src/base:base",
+        "@vienna_rna//:RNA",
+        ":nav",
+        "@com_google_absl//absl/flags:flag",
+        "@com_google_absl//absl/flags:parse",
+        "@com_google_absl//absl/flags:usage",
+        "@com_google_absl//absl/strings",
+    ],
+    srcs = ["nav_rna_dfs.cpp"],
+    copts = ["-Isrc/"],
+    # strip_include_prefix = "src"
+)
