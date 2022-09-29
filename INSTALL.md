@@ -60,12 +60,10 @@ ln -s <MY_VIENNA_RNA_PATH> ViennaRNA
 ```
 
 ## RNAshapes binary
-`RNAshapes` currently only correctly interfaces when running on linux. This
-means that only `--shape-level 0` can be passed to binaries with the flag
-`--shape-level`.
+We use `RNAshapes v2.1.6`.
 
 ### Linux
-To use RNA shapes as phenotypes, RNA shapes binary is most easily installed with
+The `RNAshapes` binary is most easily installed with
 conda in a seperate environment:
 ```bash
 conda install -y -c bioconda rnashapes
@@ -76,7 +74,25 @@ RNAshapes
 ```
 
 ### macOS
-TODO
+`conda` does not have `RNAshapes v2.1.6` so the simplest approach is to [download](https://bibiserv.cebitec.uni-bielefeld.de/resources/download/rnashapes/) directly from the authors and compile/install from
+[source](https://bibiserv.cebitec.uni-bielefeld.de/resources/download/rnashapes/RNAshapes-2.1.6.tar.gz).
+
+This can be achieved with:
+```bash
+mkdir -p RNAshapes && cd RNAshapes
+wget https://bibiserv.cebitec.uni-bielefeld.de/resources/download/rnashapes/RNAshapes-2.1.6.tar.gz
+tar -zxf RNAshapes-2.1.6.tar.gz && cd RNAshapes-2.1.6
+./configure --prefix=$GP_MAPS_NAV/RNAshapes
+make
+make install
+```
+
+With the install successful, the `RNAshapes` binary can be added to your path
+inside `.bashrc`, `.bash_profile`, `.zshrc`, etc with e.g.:
+```bash
+echo "export PATH=\"$GP_MAPS_NAV/RNAshapes/bin/:\$PATH\"" >> ~/.bashrc
+source ~/.bashrc
+```
 
 ## Build
 To build all binaries:

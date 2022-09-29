@@ -78,3 +78,8 @@ plotting/outs_final_nee
 
 # Python
 __pycache__
+
+# RNAshapes
+RNAshapes-2.1.6*
+RNAshapes/bin/
+RNAshapes/man/

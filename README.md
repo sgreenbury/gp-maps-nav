@@ -1,7 +1,8 @@
 # Navigability of genotype-phenotype (GP) maps
-This code accompanies our [paper](https://doi.org/10.1101/2021.10.11.463990) and
-provides the computational tools for investigating properties of
-genotype-phenotype (GP) maps, specifically:
+This code accompanies our Nature Ecology & Evolution
+[paper](https://doi.org/10.1038/s41559-022-01867-z) and provides the
+computational tools for investigating properties of genotype-phenotype (GP)
+maps, specifically:
 - Estimating GP map properties such as robustness and evolvability
 - Estimate navigability of GP maps
 - Simulate evolutionary dynamics
