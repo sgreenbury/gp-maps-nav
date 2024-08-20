@@ -1,2 +1,2 @@
 startup --output_user_root=~/.cache/bazel
-build --repo_env=CC=g++ --cxxopt=-std=c++11 --cxxopt=-O3 --cxxopt=-g --cxxopt=-Wall -c opt
+build --repo_env=CC=g++ --cxxopt=-std=c++11 --cxxopt=-O3 --cxxopt=-g --cxxopt=-Wall --copt=-fdiagnostics-color=always
