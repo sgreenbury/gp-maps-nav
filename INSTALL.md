@@ -6,10 +6,7 @@ Ensure the following are available:
   - Python 3 (`python`)
   - [Conda](https://docs.conda.io/en/latest/miniconda.html) (not required but
     used below)
-  - [Bazel](https://docs.bazel.build/versions/main/install-os-x.html) build tool
-	  Simplest options by OS:
-  	- macOS: `brew install bazel`
-  	- linux: `conda install -c conda-forge bazel`
+  - [bazelisk](https://bazel.build/install/bazelisk) to provide [bazel (6.4.0)](https://bazel.build/) for building and testing
 
 If conda is available, make a new environment:
 ```bash
