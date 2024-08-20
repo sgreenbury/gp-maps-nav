@@ -55,10 +55,10 @@ is phenptype index `56`. This corresponds to phenotype on line `57` of
 `gp_maps/RNA_12/pheno_list0.txt` which is `((.((...))))`. The mapping can be
 expressed as:
 ```text
-line of geno file =      12557964   ->  genotype index    =      12557963
-genotype index    =      12557963   ->  base K=4 sequence = '320223123332'
-base K=4 sequence = '320223123332'  ->  RNA sequence      = 'GCACCGUCGGGC'
-RNA sequence      = 'GCACCGUCGGGC'  ->  RNA dot-bracket   = '((.((...))))'
+line of geno file  =      12557964   ->  genotype index     =      12557963
+genotype index     =      12557963   ->  base K=4 (reverse) = '320223123332'
+base K=4 (reverse) = '320223123332'  ->  RNA sequence       = 'GCACCGUCGGGC'
+RNA sequence       = 'GCACCGUCGGGC'  ->  RNA dot-bracket    = '((.((...))))'
 ```
 The above mapping can be applied to all GP maps on disk in the same fashion
 using the corresponding `char` to `int` maps described above.
