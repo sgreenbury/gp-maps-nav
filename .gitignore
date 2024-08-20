@@ -78,6 +78,7 @@ plotting/outs_final_nee
 
 # Python
 __pycache__
+.venv
 
 # RNAshapes
 RNAshapes-2.1.6*
